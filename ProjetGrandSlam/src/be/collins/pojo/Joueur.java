@@ -1,6 +1,6 @@
 package be.collins.pojo;
 
-import java.util.Date;
+import java.util.*;
 
 public class Joueur extends Personne {
 	//variables

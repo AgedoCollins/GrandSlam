@@ -25,7 +25,7 @@ public class Ordonnancement {
 		o.match = lien.creationMatch(o.simple, o.genre, o.nbrSetGagnant);
 	}
 	
-	public void LancerOrdonnancement(Ordonnancement o) {
+	public void generateOrdonnancement(Ordonnancement o) {
 		for (Iterator<Match> iterator = match.iterator(); iterator.hasNext();) {
 			Match match2 = (Match) iterator.next();
 			match2.lancerMatch(o.nbrSetGagnant, match2);

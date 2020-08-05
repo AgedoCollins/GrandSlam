@@ -5,7 +5,6 @@ public abstract class AbstractDAOFactory {
 	
 	public static  final int DAO_FACTORY = 0;
 		
-	public abstract DAO<Personne> getPersonneDAO();
 	public abstract DAO<Equipe> getEquipeDAO();
 	public abstract DAO<Match> getMatchDAO();
 	public abstract DAO<Joueur> getJoueurDAO();

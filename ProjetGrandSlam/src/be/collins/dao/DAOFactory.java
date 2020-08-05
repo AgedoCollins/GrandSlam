@@ -8,12 +8,6 @@ public class DAOFactory extends AbstractDAOFactory {
 	protected static final Connection conn = ConnexionDB.getInstance();
 
 	@Override
-	public DAO<Personne> getPersonneDAO() {
-		// TODO Auto-generated method stub
-		return new PersonneDAO(conn);
-	}
-
-	@Override
 	public DAO<Equipe> getEquipeDAO() {
 		// TODO Auto-generated method stub
 		return new EquipeDAO(conn);

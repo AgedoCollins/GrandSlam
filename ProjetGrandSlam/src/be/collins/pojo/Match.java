@@ -66,13 +66,13 @@ public class Match {
 	}
 
 	//methodes
-	public List<Match> creationMatch(boolean simple, boolean genre, int nbrVictoire) {
+	public List<Match> creationMatch(boolean typeSimpleDouble, boolean genre, int nbrPourVictoire) {
 		/*
-		 * creation des matchs recuperation des liste des equipes
+		 * Pour la création, il faudra récupérer utiliser une d'équipe
 		 */
 		List<Match> list = new LinkedList<Match>();
 		Equipe e = new Equipe();
-		List<Equipe> listeEquipe = e.selectionEquipe(genre, simple, nbrVictoire);
+		List<Equipe> listeEquipe = e.selectionEquipe(genre, typeSimpleDouble, nbrPourVictoire);
 		return list;
 	}
 

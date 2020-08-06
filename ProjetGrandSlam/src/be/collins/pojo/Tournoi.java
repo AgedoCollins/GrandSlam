@@ -1,8 +1,5 @@
 package be.collins.pojo;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import be.collins.exception.TournoiException;
 
 public class Tournoi {

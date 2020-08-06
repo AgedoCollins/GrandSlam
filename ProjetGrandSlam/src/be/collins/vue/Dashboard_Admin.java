@@ -5,6 +5,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import be.collins.exception.TournoiException;
+import be.collins.pojo.Tournoi;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -17,6 +20,7 @@ public class Dashboard_Admin extends JFrame {
 	private JButton btnDoubleMixte;
 	private JButton btnDoubleMessieurs;
 	private JButton btnSimpleDames;
+	private Tournoi newTournoi;
 
 	/**
 	 * Create the frame.
@@ -25,6 +29,7 @@ public class Dashboard_Admin extends JFrame {
 		setResizable(false);
 		setType(Type.UTILITY);
 		setTitle("GranD SLaM");
+		newTournoi = new Tournoi();
 		initComponents();
 		createEvents();
 	}
@@ -34,26 +39,57 @@ public class Dashboard_Admin extends JFrame {
 		btnSimpleMessieurs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JOptionPane.showMessageDialog(null, "Simple messieurs");
+				try {
+					newTournoi.createTypeTournoi(1, true);
+				} catch (TournoiException e) {
+					// TODO: handle exception
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
 			}
 		});
 
 		btnSimpleDames.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				try {
+					newTournoi.createTypeTournoi(2, false);
+				} catch (Exception e) {
+					// TODO: handle exception
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
 			}
 		});
 
 		btnDoubleMixte.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				try {
+					newTournoi.createTypeTournoi(5, false);
+				} catch (Exception e) {
+					// TODO: handle exception
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
 			}
 		});
 
 		btnDoubleDames.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				try {
+					newTournoi.createTypeTournoi(3, false);
+				} catch (Exception e) {
+					// TODO: handle exception
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
 			}
 		});
 
 		btnDoubleMessieurs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				try {
+					newTournoi.createTypeTournoi(4, true);
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
 			}
 		});
 	}

@@ -65,24 +65,6 @@ public class Court {
 	}	
 	
 	//Méthodes
-	
-	public void create(Court court)
-	{
-		CourtDAO courtDao = (CourtDAO) AbstractDAOFactory.getFactory(AbstractDAOFactory.DAO_FACTORY).getCourtDAO();
-		courtDao.create(court);
-	}
-	
-	public void update(Court court)
-	{
-		CourtDAO courtDao = (CourtDAO) AbstractDAOFactory.getFactory(AbstractDAOFactory.DAO_FACTORY).getCourtDAO();
-		courtDao.update(court);
-	}
-	
-	public void delete(Court court)
-	{
-		CourtDAO courtDao = (CourtDAO) AbstractDAOFactory.getFactory(AbstractDAOFactory.DAO_FACTORY).getCourtDAO();
-		courtDao.delete(court);
-	}
 	public ArrayList<Court> findAll() {
 		// TODO Auto-generated method stub
 		CourtDAO courtDao = (CourtDAO) AbstractDAOFactory.getFactory(AbstractDAOFactory.DAO_FACTORY).getCourtDAO();

@@ -3,6 +3,8 @@ package be.collins.pojo;
 import java.util.ArrayList;
 import java.util.List;
 
+import be.collins.exception.TournoiException;
+
 public class Tournoi {
 
 	//Variables
@@ -15,20 +17,23 @@ public class Tournoi {
 	//Getters & Setters
 	
 	//Méthodes
-	public void createTypeTournoi(int type,boolean genre) {
+	public void createTypeTournoi(int type,boolean genre)  throws TournoiException{
 		boolean typeSimpleDouble = false;
 		switch (type) {
-		case 1:
-		case 2:
+		case 1: //simple homme
+		case 2: //simple femme
 			typeSimpleDouble = true;
 			break;
-		case 3:
-		case 4:
+		case 3://double dames
+		case 4: //double hommes
 			typeSimpleDouble = false;
 			break;
-		default:
+		case 5 : 
+			typeSimpleDouble = false; //5 mixte
 			break;
-		} // 1-2 simple, 3-4 double
+		default:
+			throw new TournoiException("Tournoi n'existe pas");
+		}
 		Ordonnancement o =new Ordonnancement(genre, typeSimpleDouble, type); //1 => 5
 	}
 }

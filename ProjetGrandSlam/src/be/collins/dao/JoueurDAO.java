@@ -1,6 +1,10 @@
 package be.collins.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.*;
 
 import be.collins.pojo.Joueur;
 
@@ -28,11 +32,68 @@ public class JoueurDAO extends DAO<Joueur> {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
 	@Override
 	public Joueur find(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Joueur joueur = new Joueur();
+		try {
+			ResultSet result = this.connect
+					.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery(
+							"SELECT * FROM joueur WHERE id = "+id+";");
+			if (result.first()) {
+				joueur.setId(result.getInt("id"));
+				joueur.setNom(result.getString("nom"));
+				joueur.setPrenom(result.getString("prenom"));
+				joueur.setSexe(result.getBoolean("sexe"));
+				joueur.setDateNaissance(result.getDate("datenaissance"));
+				joueur.setClassement(result.getInt("classement"));
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			System.exit(0);
+		}
+		return joueur;
 	}
 
+	public List<Joueur> getAll() {
+		List<Joueur> list = new LinkedList();
+		try {
+			ResultSet result = this.connect
+					.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * from Joueur;");
+			if (result.next()) {
+				Joueur joueur = new Joueur();
+				joueur.setId(result.getInt("id"));
+				joueur.setNom(result.getString("nom"));
+				joueur.setPrenom(result.getString("prenom"));
+				joueur.setSexe(result.getBoolean("sexe"));
+				joueur.setDateNaissance(result.getDate("datenaissance"));
+				joueur.setClassement(result.getInt("classement"));
+
+				list.add(joueur);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	public List<Joueur> getByGendre(boolean b) {
+		List<Joueur> list = new LinkedList<Joueur>();
+		try {
+			ResultSet result = this.connect
+					.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM joueur WHERE sexe="+ b+";");
+			while (result.next()) {
+				Joueur joueur = new Joueur();
+				joueur.setId(result.getInt("id"));
+				joueur.setNom(result.getString("nom"));
+				joueur.setPrenom(result.getString("prenom"));
+				joueur.setSexe(result.getBoolean("sexe"));
+				joueur.setDateNaissance(result.getDate("datenaissance"));
+				joueur.setClassement(result.getInt("classement"));
+				list.add(joueur);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }

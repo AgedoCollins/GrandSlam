@@ -1,7 +1,6 @@
 package be.collins.dao;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -47,7 +46,7 @@ public class AdminDAO extends DAO<Admin> {
 			if(result.first())
 			{
 				admin = new Admin();
-				admin.setIdAdmin(result.getInt("IdAdmin"));
+				admin.setId(result.getInt("IdAdmin"));
 				admin.setNom(result.getString("nom"));
 				admin.setPrenom(result.getString("prenom"));
 				admin.setSexe(result.getBoolean("sexe"));
@@ -73,7 +72,7 @@ public class AdminDAO extends DAO<Admin> {
 			while(result.next())
 			{
 				admin = new Admin();
-				admin.setIdAdmin(result.getInt("IdAdmin"));
+				admin.setId(result.getInt("IdAdmin"));
 				admin.setNom(result.getString("nom"));
 				admin.setPrenom(result.getString("prenom"));
 				admin.setSexe(result.getBoolean("sexe"));

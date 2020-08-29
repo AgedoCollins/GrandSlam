@@ -130,10 +130,10 @@ public class Connexion extends JFrame {
 				if (!champsVide()) {
 					Admin administrateur = new Admin();
 					if (administrateur.connexionAdministrateur(textFieldPseudo.getText(), MdpTextField.getText())) {
-						Dashboard_Admin dashboard_Admin = new Dashboard_Admin();
+						Acceuil acceuil = new Acceuil();
 						dispose();
-						dashboard_Admin.setVisible(true);
-						dashboard_Admin.setResizable(false);
+						acceuil.setVisible(true);
+						acceuil.setResizable(false);
 					} else {
 						loginpasswordIncorrect();
 					}

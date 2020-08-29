@@ -22,6 +22,7 @@ public class Acceuil extends JFrame {
 	private JButton btnDoubleMessieurs;
 	private JButton btnSimpleDames;
 	private Tournoi newTournoi;
+	private JButton btnCreerUnNouveau;
 
 	/**
 	 * Launch the application.
@@ -109,6 +110,12 @@ public class Acceuil extends JFrame {
 				}
 			}
 		});
+		
+		btnCreerUnNouveau.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				newTournoi.createTournoi();
+			}
+		});
 	}
 
 	private void initComponents() {
@@ -140,7 +147,7 @@ public class Acceuil extends JFrame {
 		btnDoubleMixte.setBounds(191, 103, 118, 64);
 		contentPane.add(btnDoubleMixte);
 
-		JButton btnCreerUnNouveau = new JButton("Creer un nouveau tournoi");
+		btnCreerUnNouveau = new JButton("Creer un nouveau tournoi");
 		btnCreerUnNouveau.setForeground(Color.WHITE);
 		btnCreerUnNouveau.setBackground(Color.GREEN);
 		btnCreerUnNouveau.setBounds(298, 284, 201, 21);

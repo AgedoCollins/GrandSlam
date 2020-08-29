@@ -1,11 +1,11 @@
 package be.collins.dao;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
+import be.collins.pojo.Court;
 import be.collins.pojo.Joueur;
 
 public class JoueurDAO extends DAO<Joueur> {
@@ -54,12 +54,12 @@ public class JoueurDAO extends DAO<Joueur> {
 		return joueur;
 	}
 
-	public List<Joueur> getAll() {
-		List<Joueur> list = new LinkedList();
+	public List<Joueur> findAll() {
+		List<Joueur> list = new ArrayList<Joueur>();
 		try {
 			ResultSet result = this.connect
 					.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * from Joueur;");
-			if (result.next()) {
+			while (result.next()) {
 				Joueur joueur = new Joueur();
 				joueur.setId(result.getInt("id"));
 				joueur.setNom(result.getString("nom"));
@@ -76,8 +76,8 @@ public class JoueurDAO extends DAO<Joueur> {
 		return list;
 	}
 
-	public List<Joueur> getByGendre(boolean b) {
-		List<Joueur> list = new LinkedList<Joueur>();
+	public List<Joueur> findByGendre(boolean b) {
+		List<Joueur> list = new ArrayList<Joueur>();
 		try {
 			ResultSet result = this.connect
 					.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY).executeQuery("SELECT * FROM joueur WHERE sexe="+ b+";");

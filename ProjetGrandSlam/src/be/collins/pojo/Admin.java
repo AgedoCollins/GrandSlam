@@ -9,14 +9,12 @@ import be.collins.dao.AdminDAO;
 public class Admin extends Personne {
 
 	// Variables
-	protected int idAdmin;
 	private String pseudo;
 	private String mdp;
 
 	// Constructeurs
 	public Admin(int idAdmin, String nom, String prenom, Date dateNaissance, boolean sexe, String pseudo, String mdp) {
 		super(-1, nom, prenom, dateNaissance, sexe);
-		this.idAdmin = idAdmin;
 		this.pseudo = pseudo;
 		this.mdp = mdp;
 	}
@@ -26,13 +24,6 @@ public class Admin extends Personne {
 	}
 
 	// Getter & Setter
-	public int getIdAdmin() {
-		return idAdmin;
-	}
-
-	public void setIdAdmin(int idAdmin) {
-		this.idAdmin = idAdmin;
-	}
 
 	public String getPseudo() {
 		return pseudo;

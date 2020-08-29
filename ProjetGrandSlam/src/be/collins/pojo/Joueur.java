@@ -36,11 +36,7 @@ public class Joueur extends Personne {
 
 	public List<Joueur> joueurParGenre(boolean b) {
 		JoueurDAO joueurDAO = (JoueurDAO) AbstractDAOFactory.getFactory(AbstractDAOFactory.DAO_FACTORY).getJoueurDAO();
-<<<<<<< HEAD
-		List<Joueur> list = joueurDAO.getByGendre(b);
-=======
 		List<Joueur> list = joueurDAO.findByGendre(b);
->>>>>>> refs/heads/POJO
 		return list;
 	}
 }
